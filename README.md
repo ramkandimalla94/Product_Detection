@@ -157,8 +157,7 @@ Do the following steps to run the process:
 2)Does this problem require multiple anchors? Please justify your answer.
 
       It may not require mutiple anchors as size and shape of all products are almost is the same range in this use case,
-      Moreover if the model is needed to deploy in mobile or low config with single anchor box model the inference can be
-      faster compared to using mutiple anchors and deployment
+      Moreover if the model is needed to deploy in mobile or low config having single anchor box is more effective.
       
 # Notes
 
