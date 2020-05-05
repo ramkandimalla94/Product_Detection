@@ -152,12 +152,13 @@ Do the following steps to run the process:
 1)What is the purpose of using multiple anchors per feature map cell?
 
       multiple anchors per feature map cell enables the network to predict multiple objects of different sizes per
-      image location.
+      image location its a standard methodology
       
 2)Does this problem require multiple anchors? Please justify your answer.
 
-      It may not require mutiple anchors as size and shape of all products are almost is the same range in this use case,
-      Moreover if the model is needed to deploy in mobile or low config having single anchor box is more effective.
+      It may not require mutiple anchors as size and shape of all products in our data are almost is the same range and depth
+      of all images are almost in same range too, so 1 anchor box per cell can do the need in this use case and added to that
+      lesser the no of anchor boxes faster the inference is and helps alot in deploying on mobile or low config devices
       
 # Notes
 
