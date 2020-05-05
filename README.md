@@ -1,6 +1,7 @@
 # Product_Detection_Assignment
 
-Running Training Proccess
+# Running Training Proccess
+
 Please, go to pack_detector/models/ssd_mobilenet_v1 and create two subfolders: eval and train. Now we have the pack_detector folder with the following content:
 
 +data
