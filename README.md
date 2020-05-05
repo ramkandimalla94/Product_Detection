@@ -88,12 +88,6 @@ Do the following steps to run the process:
           
 6) Run eval proccess
 
-        CUDA_VISIBLE_DEVICES="" python3 eval.py \
-          --logtostderr \
-          --checkpoint_dir=pack_detector/models/ssd_mobilenet_v1/train \
-          --pipeline_config_path=pack_detector/models/ssd_mobilenet_v1/ssd_mobilenet_v1_pack.config \
-          --eval_dir=pack_detector/models/ssd_mobilenet_v1/eval
-          
           python3 model_main.py
           --checkpoint_dir=pack_detector/models/ssd_mobilenet_v1/train \
           --pipeline_config_path=pack_detector/models/ssd_mobilenet_v1/ssd_mobilenet_v1_pack.config
@@ -102,7 +96,13 @@ Do the following steps to run the process:
 
         tensorboard --logdir=pack_detector/models/ssd_mobilenet_v1
 
-
+8) Generate .pb file from checkpont
+         
+         python3 export_inference_graph.py \
+         --input_type image_tensor \
+         --pipeline_config_path pack_detector/models/ssd_mobilenet_v1/ssd_mobilenet_v1_pack.config \
+         --trained_checkpoint_prefix pack_detector/models/ssd_mobilenet_v1/train/model.ckpt-13756 \
+         --output_directory pack_detector/models/ssd_mobilenet_v1/pack_detector_2018_06_03
 # Q&A
 
 1)What is the purpose of using multiple anchors per feature map cell?
