@@ -141,7 +141,12 @@ Do the following steps to run the process:
         Script runs on all test images from shelf_data.csv.Best Results are achived with mentioned .pb file and applying
         sliding window with non-max supression. The .pb file genererated from the checkpoint is not giving good results on
         full image but performing well on smaller part of image hence tried sliding window with non-max supression.
-         
+
+# Get Metrics 
+      Usage:
+            python Get_Metrics.py
+            
+            
 # Q&A
 
 1)What is the purpose of using multiple anchors per feature map cell?
@@ -155,6 +160,10 @@ Do the following steps to run the process:
       
 # Notes
 
-      Inference.py and Get_Metrics.py codes can be optimised more. Time of Inference.py can be reducing by running the 
-      inference on images parallely with multiprocessing currently its on for loop.
+      Inference.py code can be optimised more. Time of Inference.py can be reducing by running the 
+      inference on images parallely with multiprocessing(currently its on for loop), Also I am saving Predictions of images
+      in a text file to caliculate mAP and other metrics(this part of code can be optimised too) 
+      
+      Get_Metrics.py code be cleaned more.
+      
       
