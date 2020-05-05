@@ -4,6 +4,7 @@ python Data_Prep.py <Path_to_Product_Images_Parent_Folder> \
                     <Path_to_Shelves_Images_Folder> \
                     <Name_of_Output_Product_Images.csv> \
                     <Name_of_Output_Shelves_Images.csv>
+eg: python Data_Prep.py GroceryDataset/ProductImagesFromShelves/ GroceryDataset/ShelfImages/ products_data.csv shelf_data.csv
 """
 
 import cv2
@@ -35,7 +36,7 @@ def Prod_Data(Prod_Data_Path):
     """
 
     # Get list of all images
-    prod_img =glob.glob(Prod_Data_Path)
+    prod_img =glob.glob(Prod_Data_Path+'*/*.png')
 
     p_images,category=[],[]
     x1,y1,x2,y2,w,h,shelf_name=[],[],[],[],[],[],[]
@@ -71,7 +72,7 @@ def Shelf_Data(Shelf_Data_Path):
     """
 
     # Get list of all images
-    shelf_img=glob.glob(Shelf_Data_Path)
+    shelf_img=glob.glob(Shelf_Data_Path+'*.JPG')
 
     s_images,shelf_name=[],[]
     for i in shelf_img:
