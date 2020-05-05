@@ -1,5 +1,11 @@
 # Product_Detection_Assignment (Infilect)
 
+# Results
+      
+      mAP : 0.92
+      precision: 0.99
+      recall: 0.46
+
 # Dependencies
 
 Solution depends on the following main libraries:
