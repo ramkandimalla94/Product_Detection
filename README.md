@@ -29,7 +29,9 @@ Solution depends on the following main libraries:
                                     GroceryDataset/ShelfImages/ \
                                     products_data.csv \
                                     shelf_data.csv
-
+      
+                 Place all data in one folder in my case its GroceryDataset
+      
       ProductImagesFromShelves contains cut-out photos of goods from shelves in 11 subdirectories: 
       0 - not classified, 1 - Marlboro, 2 - Kent, etc. Files in the names contain information about the rack, 
       the position and size of the pack on it.
