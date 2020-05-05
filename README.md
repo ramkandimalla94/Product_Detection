@@ -3,12 +3,14 @@
 Running Training Proccess
 Please, go to pack_detector/models/ssd_mobilenet_v1 and create two subfolders: eval and train. Now we have the pack_detector folder with the following content:
 
-
 +data
+
       train.record
       eval.record
       pack.pbtxt
+      
 +models
+
       +ssd_mobilenet_v1
           +train
           +eval
@@ -36,6 +38,7 @@ Do the following steps to run the process:
           --logtostderr \
           --checkpoint_dir=pack_detector/models/ssd_mobilenet_v1/train \
           --pipeline_config_path=pack_detector/models/ssd_mobilenet_v1/ssd_mobilenet_v1_pack.config \
---eval_dir=pack_detector/models/ssd_mobilenet_v1/eval
-Run tensorboard process with:
-tensorboard --logdir=pack_detector/models/ssd_mobilenet_v1
+          --eval_dir=pack_detector/models/ssd_mobilenet_v1/eval
+
+7) Run tensorboard process with:
+        tensorboard --logdir=pack_detector/models/ssd_mobilenet_v1
