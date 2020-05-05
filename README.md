@@ -34,16 +34,20 @@ Do the following steps to run the process:
 
 4) Copy your pack_detector folder to models/research/object_detection
 
-5) Run train process with: 
+5) Run train process
+
         python3 train.py --logtostderr \
           --train_dir=pack_detector/models/ssd_mobilenet_v1/train/ \
           --pipeline_config_path=pack_detector/models/ssd_mobilenet_v1/ssd_mobilenet_v1_pack.config
-6) Run eval proccess on CPU with:
+          
+6) Run eval proccess
+
         CUDA_VISIBLE_DEVICES="" python3 eval.py \
           --logtostderr \
           --checkpoint_dir=pack_detector/models/ssd_mobilenet_v1/train \
           --pipeline_config_path=pack_detector/models/ssd_mobilenet_v1/ssd_mobilenet_v1_pack.config \
           --eval_dir=pack_detector/models/ssd_mobilenet_v1/eval
 
-7) Run tensorboard process with:
+7) Run tensorboard process
+
         tensorboard --logdir=pack_detector/models/ssd_mobilenet_v1
