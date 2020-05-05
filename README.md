@@ -66,7 +66,8 @@ Do the following steps to run the process:
 
 1)What is the purpose of using multiple anchors per feature map cell?
 
-      multiple anchors per feature map cell enables the network to predict multiple objects of different sizes per image             location.
+      multiple anchors per feature map cell enables the network to predict multiple objects of different sizes per
+      image location.
       
 2)Does this problem require multiple anchors? Please justify your answer.
 
