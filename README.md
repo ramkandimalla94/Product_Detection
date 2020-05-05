@@ -60,3 +60,14 @@ Do the following steps to run the process:
 7) Run tensorboard process
 
         tensorboard --logdir=pack_detector/models/ssd_mobilenet_v1
+
+
+# Q&A
+
+1)What is the purpose of using multiple anchors per feature map cell?
+
+      multiple anchors per feature map cell enables the network to predict multiple objects of different sizes per image             location.
+      
+2)Does this problem require multiple anchors? Please justify your answer.
+
+      It may not require mutiple anchors
