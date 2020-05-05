@@ -16,6 +16,19 @@ Solution depends on the following main libraries:
       OpenCV
 
 # Data Preparation
+      
+      Script Usage:
+      
+      Usage:
+            python Data_Prep.py <Path_to_Product_Images_Parent_Folder> \
+                                <Path_to_Shelves_Images_Folder> \
+                                <Name_of_Output_Product_Images.csv> \
+                                <Name_of_Output_Shelves_Images.csv>
+                                
+            eg: python Data_Prep.py GroceryDataset/ProductImagesFromShelves/ \
+                                    GroceryDataset/ShelfImages/ \
+                                    products_data.csv \
+                                    shelf_data.csv
 
       ProductImagesFromShelves contains cut-out photos of goods from shelves in 11 subdirectories: 
       0 - not classified, 1 - Marlboro, 2 - Kent, etc. Files in the names contain information about the rack, 
@@ -33,7 +46,13 @@ Solution depends on the following main libraries:
       
       Once CSV files are generated, we now need to make tf.records for training input using Making_TFrecords.py
       
-# Data Augmentation
+# Data Augmentation And Making TF Records
+
+      Usage:
+            python Making_TFrecords.py <Path_to_shelf data CSV created using Data_Prep.py> \
+                                <Path_to_product data CSV created using Data_Prep.py>
+                                
+            eg: python Making_TFrecords.py shelf_data.csv product_data.csv
       
       Random crop is done from the original given data which can be found in Making_TFrecords.py random_crop function.
       random_horizontal_flip etc augemntations are also which can be found in SSD config file.
@@ -103,6 +122,26 @@ Do the following steps to run the process:
          --pipeline_config_path pack_detector/models/ssd_mobilenet_v1/ssd_mobilenet_v1_pack.config \
          --trained_checkpoint_prefix pack_detector/models/ssd_mobilenet_v1/train/model.ckpt-13756 \
          --output_directory pack_detector/models/ssd_mobilenet_v1/pack_detector_2018_06_03
+
+# Inference 
+      
+      Usage:
+            python Inference.py <path to pb file> \
+                                <path to pack.pbtxt file> \
+                                <path to shelf images> \
+                                <path to Grocery Data parent folder> \
+                                <path to shelf data CSV created>
+        
+        Eg : python Inference.py frozen_inference_graph_18628_1_anchor.pb \
+                            pack_detector/data/pack.pbtxt \
+                            ../GroceryDataset/ShelfImages \
+                            ../GroceryDataset \
+                            shelf_data.csv
+                            
+        Script runs on all test images from shelf_data.csv.Best Results are achived with mentioned .pb file and applying
+        sliding window with non-max supression. The .pb file genererated from the checkpoint is not giving good results on
+        full image but performing well on smaller part of image hence tried sliding window with non-max supression.
+         
 # Q&A
 
 1)What is the purpose of using multiple anchors per feature map cell?
@@ -113,3 +152,9 @@ Do the following steps to run the process:
 2)Does this problem require multiple anchors? Please justify your answer.
 
       It may not require mutiple anchors
+      
+# Notes
+
+      Inference.py and Get_Metrics.py codes can be optimised more. Time of Inference.py can be reducing by running the 
+      inference on images parallely with multiprocessing currently its on for loop.
+      
