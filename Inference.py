@@ -1,10 +1,26 @@
+'''
+Usage:
 
+python Inference.py <path to pb file> \
+                    <path to pack.pbtxt file> \
+                    <path to shelf images> \
+                    <path to Grocery Data parent folder> \
+                    <path to shelf data CSV created>
+
+        
+        Eg : python Inference.py frozen_inference_graph_18628_1_anchor.pb \
+                            pack_detector/data/pack.pbtxt \
+                            ../GroceryDataset/ShelfImages \
+                            ../GroceryDataset \
+                            shelf_data.csv
+
+'''                            
 import numpy as np
 import tensorflow as tf
 import cv2
 import pandas as pd
 import json
-
+import sys
 from collections import defaultdict
 from matplotlib import pyplot as plt
 
@@ -15,14 +31,14 @@ from object_detection.utils import visualization_utils as vis_util
 
 # paths to main folders: with frozen graph, with classes labels, 
 # with all shelves images and with data
-PATH_TO_MODEL = 'models/research/object_detection/pack_detector/models/ssd_mobilenet_v1/test_1_anchor/18628/frozen_inference_graph_18628_1_anchor.pb'
-PATH_TO_LABELS = 'models/research/object_detection/pack_detector/data/pack.pbtxt'
-PATH_TO_IMAGES = 'GroceryDataset/ShelfImages/'
-PATH_TO_DATA = 'GroceryDataset/'
+PATH_TO_MODEL = sys.argv[1]
+PATH_TO_LABELS = sys.argv[2]
+PATH_TO_IMAGES = sys.argv[3]
+PATH_TO_DATA = sys.argv[4]
 NUM_CLASSES = 1
 
 # load photos dataframe to get all evaluation images names
-photos = pd.read_csv('./shelf_data.csv')
+photos = pd.read_csv(sys.argv[5])
 photos = photos[~photos.train]
 
 
@@ -247,8 +263,10 @@ def main():
             df=pd.DataFrame({'Class':cls,'Score':score,'X1':x1,'Y1':y1,'X2':x2,'Y2':y2})
             
             fpath='./input/detection-results/'+i.replace('JPG','txt')
+
             df.to_csv(fpath,sep=' ', index=False, header=False)
-        
+
+
     with open('image2products.json', 'w') as fp:
         json.dump(dic, fp)
 
