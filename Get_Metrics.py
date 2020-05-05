@@ -1,3 +1,7 @@
+'''
+Usage: python Get_Metrics.py
+'''
+
 import glob
 import json
 import os
