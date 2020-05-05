@@ -141,9 +141,8 @@ Do the following steps to run the process:
                             shelf_data.csv
                             
         Script runs on all test images from shelf_data.csv.Best Results are achived with mentioned .pb file and applying
-        sliding window with non-max supression. The .pb file genererated from the checkpoint is not giving good results on
-        full image but performing well on smaller part of image hence tried sliding window with non-max supression.
-
+        sliding window with non-max supression.(Best Results) 
+        
 # Get Metrics 
       Usage:
             python Get_Metrics.py
