@@ -1,4 +1,4 @@
-# Product_Detection_Assignment
+# Product_Detection_Assignment (Infilect)
 
 # Running Training Proccess
 
