@@ -1,5 +1,14 @@
 # Product_Detection_Assignment (Infilect)
 
+# Dependencies
+
+Solution depends on the following main libraries:
+
+      Tensorlfow
+      Keras
+      Tensorflow Object Detection API
+      OpenCV
+      
 # Running Training Proccess
 
 Please, go to pack_detector/models/ssd_mobilenet_v1 and create two subfolders: eval and train. Now we have the pack_detector folder with the following content:
