@@ -122,8 +122,8 @@ Do the following steps to run the process:
          python3 export_inference_graph.py \
          --input_type image_tensor \
          --pipeline_config_path pack_detector/models/ssd_mobilenet_v1/ssd_mobilenet_v1_pack.config \
-         --trained_checkpoint_prefix pack_detector/models/ssd_mobilenet_v1/train/model.ckpt-13756 \
-         --output_directory pack_detector/models/ssd_mobilenet_v1/pack_detector_2018_06_03
+         --trained_checkpoint_prefix pack_detector/models/ssd_mobilenet_v1/train/<best_check_point> \
+         --output_directory pack_detector/models/ssd_mobilenet_v1/<output_folder>
 
 # Inference 
       
