@@ -24,13 +24,13 @@ Do the following steps to run the process:
 1) Install Tensorflow Object Detection API if you haven't done it before Installation
    (https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)
 
-2) Go to the models/research/object_detection directory Download and untar pretrained model with
-      
-      wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz
+2) Go to the models/research/object_detection directory Download and untar pretrained model
+        
+        wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz
    
 3) Extract the file
-
-      tar -xvzf ssd_mobilenet_v1_coco_2017_11_17.tar.gz
+        
+        tar -xvzf ssd_mobilenet_v1_coco_2017_11_17.tar.gz
 
 4) Copy your pack_detector folder to models/research/object_detection
 
